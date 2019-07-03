@@ -1,14 +1,16 @@
-@import 'config';
-@import 'menu';
-@import 'mobile';
+@import "config";
+@import "menu";
+
 * {
   box-sizing: border-box;
 }
 body {
   @include background();
   background-color: $main-colour;
-  color: #fff;
-  height: 100%;
+  color: set-text-color($main-colour);
+  
+
+ 
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
@@ -43,6 +45,9 @@ header {
 }
 main {
   padding: 4rem;
+
+  min-height: calc(100vh-60px);
+
   .icons {
     margin-top: 1rem;
 
@@ -61,3 +66,105 @@ main {
     }
   }
 }
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas: "bioimage bio bio" "job1 job2 job3";
+  grid-template-columns: repeat(3 1fr);
+}
+
+.bio-image {
+  grid-area: bioimage;
+  margin: auto;
+  border: solid 3px $main-colour;
+  border-radius: 50%;
+}
+
+.bio {
+  grid-area: bio;
+  font-size: 1.5rem;
+}
+
+.job-1 {
+  grid-area: job1;
+}
+.job-2 {
+  grid-area: job2;
+}
+.job-3 {
+  grid-area: job3;
+}
+.job {
+  background-color: lighten($main-colour, 5);
+  padding: 0.5rem;
+  border-bottom: solid 5px $secondary-colour;
+}
+//project/work
+.project {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.7rem;
+
+  img {
+    width: 100%;
+    border: solid #fff 3px;
+    &:hover {
+      opacity: 0.5;
+      @include easeOut;
+      border-color: $secondary-colour;
+    }
+  }
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  div {
+    font-size: 2rem;
+    padding: 1.5rem 2.5rem;
+    border: 3px solid #fff;
+    margin-bottom: 3rem;
+    @include easeOut;
+
+    &:hover {
+      padding: 1.5rem 2rem;
+      background: $secondary-colour;
+      color: set-text-color($secondary-colour);
+      span {
+        color: set-text-color($secondary-colour);
+      }
+    }
+  }
+}
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background-color: $secondary-colour;
+    color: set-text-color($secondary-colour);
+  }
+}
+.btn-dark {
+  @extend .btn;
+  background: darken($main-colour, 50);
+  color: #fff;
+}
+.btn-light {
+  @extend .btn;
+  background: lighten($main-colour, 50);
+  color: #333;
+}
+#main-footer {
+  text-align: center;
+  background-color: darken($main-colour, 10);
+  padding: 1rem;
+  color: set-text-color($main-colour);
+  height: 60px;
+}
+
+@import "mobile";

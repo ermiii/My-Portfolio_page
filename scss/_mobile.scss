@@ -1,8 +1,12 @@
 //wide screens
 @include mediaXl {
+  .project{
+    grid-template-columns: repeat(4,1fr);
+  }
 }
 //DESKTOP AND LAPTOP
 @include mediaLg {
+  
 }
 
 // tablets and small laptops
@@ -40,8 +44,22 @@
     width:150px;
     height:150px;
   }
+  .about-info{
+    grid-template-areas: 'bioimage'
+    'bio'
+    'job1'
+    'job2'
+    'job3';
+    grid-template-columns: 1fr;
+  }
+  .project{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 // mobile phone
 @include mediaSm {
+  .project{
+    grid-template-columns: 1fr;
+  }
 }
