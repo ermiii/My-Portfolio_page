@@ -125,12 +125,11 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
 }
-body#bg-img {
+.background-image {
   background: url(/ermi/img/background-image.jpg);
   background-attachment: fixed;
   background-size: cover;
-}
-body#bg-img:after {
+
   content: "";
   position: absolute;
   top: 0;
